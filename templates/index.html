@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Farmer Helper</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/layout.css') }}" type="text/css">
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+<style type="text/css">
+      .grid1 {
+          display: grid;
+          grid-template-colums: 20% auto;
+          grid-template-areas: "image text_";
+          grid-gap: 10px;
+      }
+      .img1{
+          grid-area: image;
+      }
+      .text1{
+          grid-area: text_;
+      }
+</style>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <div id="hgroup">
+      <div class="grid1">
+                        <div class="img1">
+                            <img src="{{ url_for('static',filename='images/demo/farmer.jpg') }}" width="250" height="180" alt="">
+                        </div>
+                        <div class="text1">
+                            <h1>Farmer Helper</h1>
+                            <h2>We care for our "Dharti Putra"</h2>
+                        </div>
+                    </div>
+    </div>
+  </header>
+</div>
+<!-- content -->
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- Slider -->
+    <section id="slider"><a href="#"><img src=""{{ url_for('static',filename='images/demo/960x360.gif') }}" alt=""></a></section>
+    <!-- main content -->
+    <div id="homepage">
+      <section id="latest">
+        <article>
+          <figure>
+            <ul class="clear">
+              <li class="one_third">
+                <a href="/home">
+                  <img src="{{ url_for('static',filename='images/demo/plantix.jpg') }}" width="290" height="180" alt="">
+                  <h3 style="text-align: center; margin-top: 3%;">Predict Plant Diseases</h3>
+                </a>
+              </li>
+              <li class="one_third">
+                <a href="/ask">
+                  <img src="{{ url_for('static',filename='images/demo/doubts.jpg') }}" width="290" height="180" alt="">
+                  <h3 style="text-align: center; margin-top: 3%;">Ask any question</h3>
+                </a>
+              </li>
+              <li class="one_third lastbox">
+                <a href="/price">
+                  <img src="{{ url_for('static',filename='images/demo/price.jpg') }}" width="290" height="180" alt="">
+                  <h3 style="text-align: center; margin-top: 3%;">Check Latest APMC Prices</h3>
+                </a>
+              </li>
+              <li class="one_third lastbox" style="margin-top: 2%;">
+                <a href="/news">
+                  <img src="{{ url_for('static',filename='images/demo/news.jpg') }}" width="290" height="180" alt="">
+                  <h3 style="text-align: center; margin-top: 3%;">Checkout latest NEWS</h3>
+                </a>
+              </li>
+            </ul>
+          </figure>
+        </article>
+      </section>
+      <!-- / latest work -->
+    </div>
+    
+  </div>
+</div>
+</body>
+</html>

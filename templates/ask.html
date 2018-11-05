@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/layout.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Diseases Prediction</title>
+  <style type="text/css">
+        .grid1 {
+            display: grid;
+            grid-template-colums: 20% auto;
+            grid-template-areas: "image text_";
+            grid-gap: 10px;
+        }
+        .img1{
+            grid-area: image;
+        }
+        .text1{
+            grid-area: text_;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="wrapper row1">
+            <header id="header" class="clear">
+                <div id="hgroup">
+                    <div class="grid1">
+                        <div class="img1">
+                            <img src="{{ url_for('static',filename='images/demo/farmer.jpg') }}" width="250" height="180" alt="">
+                        </div>
+                        <div class="text1">
+                            <h1><a href="#">Farmer Helper</a></h1>
+                            <h2>We care for our "Dharti Putra"</h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="container">
+            <h1 style="text-align: center;">Ask your doubts</h1>
+            <div class="row justify-content-md-center">
+                <div class="col-8">
+                    <form action="/submitask" method="post">
+                        <div class="form-group">
+                            <label for="question">Question</label>
+                            <input name="question" type="text" class="form-control" id="question" aria-describedby="questionHelp" placeholder="Enter question">
+                            <small id="questionHelp" class="form-text text-muted">Frame our question properly</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Example select</label>
+                            <select name=dname class="form-control" id="exampleFormControlSelect1">
+                                <option>Tomato Bacterial spot</option>
+                                <option>Tomato Yellow Leaf Curl Vir</option>
+                                <option>Tomato Target_Spot</option>
+                                <option>Tomato Early blight</option>
+                                <option>Tomato Late blight</option>
+                                <option>Tomato mosaic virus</option>
+                                <option>Tomato Spider mites</option>
+                                <option>Tomato Leaf Mold</option>
+                                <option>Squash Powdery mildew</option>
+                                <option>Potato Late blight</option>
+                                <option>Pepper bell healthy</option>
+                                <option>Strawberry Leaf scorch</option>
+                                <option>Pepper bell Bacterial+spot</option>
+                                <option>Potato Early blight</option>
+                                <option>Peach Bacterial spot</option>
+                                <option>Corn maize Northern Leaf Blight</option>
+                                <option>Grape Leaf blight Isariopsis Leaf Spot</option>
+                                <option>Grape Black rot</option>
+                                <option>Orange Citrus greening</option>
+                                <option>Grape Esca Black Measles</option>
+                                <option>Corn+maize Common rust</option>
+                                <option>Apple Black rot</option>
+                                <option>Corn maize Cercospora leaf spot</option>
+                                <option>Apple scab</option>
+                                <option>Apple Cedar rust</option>
+                                <option>Cherry including sour Powdery mild</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>  
+
+
+

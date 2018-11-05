@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/layout.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Diseases Prediction</title>
+  <style type="text/css">
+        .grid1 {
+            display: grid;
+            grid-template-colums: 20% auto;
+            grid-template-areas: "image text_";
+            grid-gap: 10px;
+        }
+        .img1{
+            grid-area: image;
+        }
+        .text1{
+            grid-area: text_;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="wrapper row1">
+            <header id="header" class="clear">
+                <div id="hgroup">
+                    <div class="grid1">
+                        <div class="img1">
+                            <img src="{{ url_for('static',filename='images/demo/farmer.jpg') }}" width="250" height="180" alt="">
+                        </div>
+                        <div class="text1">
+                            <h1><a href="#">Farmer Helper</a></h1>
+                            <h2>We care for our "Dharti Putra"</h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+    {% if show %}
+      <div class="container" style="margin-top: 5%">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-12">
+            <div class="jumbotron alert alert-danger" role="alert">
+              <h2 class="display-4" style="text-align: center;">OOps!</h2>
+              <h4 style="text-align: center;">your plant is suufering from <strong>{{prediction}}</strong></h4>
+              <p class="lead" style="text-align: center;">But don't worry we are always there to help you in your time of danger. You may like any of the following ideas or videos. Just click on it and you may find a solution.</p>
+              <hr class="my-4">
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <a href="/ask"><h3 style="text-align: center;text-decoration: underline;">Ask question here</h3></a>
+          <h3 style="text-align: center;text-decoration: underline;">Videos you may have to look at</h3>
+          <div class="row">
+          {% for i in range(0,5) %}
+            <div class="col-sm">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src={{vid_thumb_arr[i]}} alt={{vid_text_arr[i]}}>
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  
+                  {% if vid_text_arr[i]|length < 32 %}
+                    <p class="card-text">{{vid_text_arr[i]}}</p>
+                    
+                  {% else %}
+                    <p class="card-text">{{vid_text_arr[i][0:32]}}...</p>
+                  {% endif %}
+                  <a href={{vid_link_arr[i]}} class="btn btn-primary">Watch</a>
+                </div>
+              </div>
+              <br />
+              <br />
+            </div>
+          {% endfor %}
+          </div>
+          <h3 style="text-align: center;text-decoration: underline;">Other important links</h3>
+          {% for i in range(0,text_array|length) %}
+            <div class="col-sm">
+              <h3>{{text_array[i]}}</h3>
+              <br />
+              <a id="trig1" class="text" href={{link_array[i]}}>{{link_array[i]}}</a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <div class="jumbotron alert alert-success" role="alert">
+        <h1 class="display-4">Great!</h1>
+        <p class="lead">We have detected no disease in your plant. But take care or say more in future to prevent our plant</p>
+        <hr class="my-4">
+      </div>
+    {% endif %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>  
+
+<!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}"> -->

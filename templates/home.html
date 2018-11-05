@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/layout.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Diseases Prediction</title>
+  <style type="text/css">
+        .grid1 {
+            display: grid;
+            grid-template-colums: 20% auto;
+            grid-template-areas: "image text_";
+            grid-gap: 10px;
+        }
+        .img1{
+            grid-area: image;
+        }
+        .text1{
+            grid-area: text_;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="wrapper row1">
+            <header id="header" class="clear">
+                <div id="hgroup">
+                    <div class="grid1">
+                        <div class="img1">
+                            <img src="{{ url_for('static',filename='images/demo/farmer.jpg') }}" width="250" height="180" alt="">
+                        </div>
+                        <div class="text1">
+                            <h1><a href="#">Farmer Helper</a></h1>
+                            <h2>We care for our "Dharti Putra"</h2>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+
+
+	<header class="navbar">
+	  <!-- <form action="/predict" method="post" enctype="multipart/form-data" >
+	      <span class="btn btn-default btn-file">
+	        Browse <input type="file" name="image">
+	      </span>
+
+	    <input type="submit" value="Upload your image" class="btn btn-primary">
+	  </form> -->
+	  <form action="/predict" method="post" enctype="multipart/form-data">
+		  <div class="form-group">
+		    <label for="exampleFormControlFile1">Upload the image of the plant</label>
+		    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1" onchange="readURL(this);" >
+		    <img id="blah" src="#" style="margin-top: 5px; margin-bottom: 5px;" />
+		    <br />
+		    <input type="submit" value="Check for disease" class="btn btn-primary">
+		  </div>
+	   </form>
+	</header>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    	     function readURL(input) {
+    	     	console.log("hjhjh")
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+  </body>
+</html>  
+
+
+
